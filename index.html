@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectHub - Professional Project Development for Final Year Students</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Define custom theme colors for Tailwind based on the image's blue */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#2563eb', /* A good deep blue matching the design */
+                        'secondary-blue': '#f0f4ff', /* Light background for the hero */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+
+        /* Custom font import (Inter is the preferred default) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937; /* Darker text for readability */
+        }
+        
+        /* Utility class for transition effects */
+        .transition-default {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Initial state for scroll animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Active state for scroll animation */
+        .animated-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand Name -->
+                <a href="#" class="text-xl font-bold text-primary-blue flex items-center">
+                    <i data-lucide="graduation-cap" class="w-6 h-6 mr-1 text-blue-500"></i>
+                    ProjectHub
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#services" class="text-gray-600 hover:text-primary-blue transition-default font-medium text-sm">Services</a>
+                    <a href="#process" class="text-gray-600 hover:text-primary-blue transition-default font-medium text-sm">How it Works</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-primary-blue transition-default font-medium text-sm">Pricing</a>
+                    <a href="#contact-form" class="text-gray-600 hover:text-primary-blue transition-default font-medium text-sm">Contact</a>
+                    <div class="w-px h-6 bg-gray-200"></div>
+                    <button class="text-gray-700 font-medium text-sm hover:text-primary-blue transition-default">Login</button>
+                    <a href="#contact-form" class="px-4 py-2 rounded-lg bg-primary-blue text-white font-medium text-sm shadow-md hover:bg-blue-700 transition-default">
+                        Get Started
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-default focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-xl py-2 z-40">
+            <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-secondary-blue transition-default">Services</a>
+            <a href="#process" class="block px-4 py-2 text-gray-700 hover:bg-secondary-blue transition-default">How it Works</a>
+            <a href="#pricing" class="block px-4 py-2 text-gray-700 hover:bg-secondary-blue transition-default">Pricing</a>
+            <a href="#contact-form" class="block px-4 py-2 text-gray-700 hover:bg-secondary-blue transition-default">Contact</a>
+            <button class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-secondary-blue transition-default">Login</button>
+            <a href="#contact-form" class="block text-center px-4 py-2 text-white bg-primary-blue hover:bg-blue-700 transition-default mx-4 mt-2 rounded-lg font-medium">Get Started</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-12 md:py-20 bg-secondary-blue/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-on-scroll transition-default" style="transition-delay: 100ms;">
+                    <h1 class="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold text-gray-900 leading-tight mb-4">
+                        Professional Project Development for <span class="text-primary-blue">Final Year Students</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6 max-w-lg">
+                        Get expert help with your final year project. From web development to mobile apps, we deliver high-quality academic projects on time.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-8">
+                        <a href="#contact-form" style="background-color: rgb(0, 110, 255);" class="px-6 py-3 bg-primary-blue text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-default transform hover:scale-[1.02] active:scale-[0.98]">
+                            Order Your Project
+                        </a>
+                        <a href="#" class="px-6 py-3 bg-white text-primary-blue font-semibold rounded-lg border-2 border-primary-blue hover:bg-blue-50 transition-default shadow-md transform hover:scale-[1.02] active:scale-[0.98]">
+                            View Samples
+                        </a>
+                    </div>
+
+                    <!-- Statistics/Rating -->
+                    <div class="flex items-center space-x-6 text-sm">
+                        <div class="flex items-center text-yellow-600 font-bold">
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-500 mr-1"></i>
+                            4.9/5 Rating
+                        </div>
+                        <div class="text-gray-500">
+                            200+ Projects Delivered
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image/Illustration -->
+                <div class="hidden md:block animate-on-scroll transition-default" style="transition-delay: 300ms;">
+                    <!-- Placeholder based on the image provided -->
+                    <div class="relative rounded-2xl shadow-2xl overflow-hidden">
+                        <img src="img/proj.jpeg" alt="Student working on project" class="w-full h-auto object-cover">
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg flex items-center text-primary-blue font-semibold">
+                             <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500"></i>
+                             Ready for Evaluation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3 animate-on-scroll">
+                    Our Project Development Services
+                </h2>
+                <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto animate-on-scroll" style="transition-delay: 100ms;">
+                    We specialize in creating high-quality academic projects across various technologies and domains.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service Card 1: Web Development -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition-default transform hover:-translate-y-1 group animate-on-scroll" style="transition-delay: 200ms;">
+                        <i data-lucide="layout-grid" class="w-8 h-8 text-primary-blue mb-4 group-hover:scale-110 transition-default"></i>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Web Development</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Full-stack web applications using modern frameworks like React, Angular, Flask, or Django.
+                        </p>
+                        <ul class="text-left text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Responsive Design</li>
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Secure Authentication</li>
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Full Documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service Card 2: Mobile Apps -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition-default transform hover:-translate-y-1 group animate-on-scroll" style="transition-delay: 350ms;">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-purple-600 mb-4 group-hover:scale-110 transition-default"></i>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Mobile Apps</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Native and cross-platform mobile solutions for Android and iOS platforms.
+                        </p>
+                        <ul class="text-left text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Flutter & React Native</li>
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Offline Functionality</li>
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>App Store Deployment</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Card 3: AI & ML Projects -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition-default transform hover:-translate-y-1 group animate-on-scroll" style="transition-delay: 500ms;">
+                        <i data-lucide="cpu" class="w-8 h-8 text-teal-600 mb-4 group-hover:scale-110 transition-default"></i>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">AI & ML Projects</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Machine learning models, data analysis, and advanced applications for your research.
+                        </p>
+                        <ul class="text-left text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Python & TensorFlow</li>
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Data Preprocessing</li>
+                            <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2 mt-1"></i>Model Deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Process Section - Blue Background -->
+        <section style="background-color: blue;" id="process" class="py-16 md:py-24 bg-primary-blue text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-3 animate-on-scroll">
+                    How to Order Your Project
+                </h2>
+                <p class="text-center text-white/90 text-lg mb-12 max-w-3xl mx-auto animate-on-scroll" style="transition-delay: 100ms;">
+                    A simple 4-step process to get your project started.
+                </p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Step 1 -->
+                    <div class="animate-on-scroll" style="transition-delay: 200ms;">
+                        <div style="color: black;" class="w-16 h-16 rounded-full bg-white text-primary-blue text-2xl font-bold mx-auto flex items-center justify-center mb-4 shadow-xl">1</div>
+                        <h3 class="text-lg font-semibold mb-2">Submit Requirements</h3>
+                        <p class="text-sm text-white/80">
+                            Fill out the form with your specific requirements and submission deadline.
+                        </p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="animate-on-scroll" style="transition-delay: 350ms;">
+                        <div style="color: black;" class="w-16 h-16 rounded-full bg-white text-primary-blue text-2xl font-bold mx-auto flex items-center justify-center mb-4 shadow-xl">2</div>
+                        <h3 class="text-lg font-semibold mb-2">Get Quote</h3>
+                        <p class="text-sm text-white/80">
+                            Receive a detailed plan, quote, and timeline within 24 hours of submission.
+                        </p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="animate-on-scroll" style="transition-delay: 500ms;">
+                        <div style="color: black;" class="w-16 h-16 rounded-full bg-white text-primary-blue text-2xl font-bold mx-auto flex items-center justify-center mb-4 shadow-xl">3</div>
+                        <h3 class="text-lg font-semibold mb-2">Make Payment</h3>
+                        <p class="text-sm text-white/80">
+                            Securely make an upfront payment or agree on milestone-based payments.
+                        </p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div  class="animate-on-scroll" style="transition-delay: 650ms;">
+                        <div style="color: black;" class="w-16 h-16 rounded-full bg-white text-primary-blue text-2xl font-bold mx-auto flex items-center justify-center mb-4 shadow-xl">4</div>
+                        <h3 class="text-lg font-semibold mb-2">Receive Project</h3>
+                        <p class="text-sm text-white/80">
+                            Get the final project with documentation and support for final submission.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/Order Form Section -->
+        <section id="contact-form" class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3 animate-on-scroll">
+                        Start Your Project Order
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll" style="transition-delay: 100ms;">
+                        Fill out the details below and we'll get back to you within 24 hours.
+                    </p>
+                </div>
+
+                <!-- Form Layout -->
+                <form id="project-order-form" class="space-y-6 bg-white p-6 rounded-xl shadow-lg border border-gray-100 animate-on-scroll" style="transition-delay: 200ms;">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Full Name -->
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" id="full-name" placeholder="Enter your full name" required 
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default">
+                        </div>
+                        <!-- Email Address -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email address" required 
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- University/College -->
+                        <div>
+                            <label for="university" class="block text-sm font-medium text-gray-700">University/College</label>
+                            <input type="text" id="university" placeholder="Enter your institution" required 
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default">
+                        </div>
+                        <!-- Project Type -->
+                        <div>
+                            <label for="project-type" class="block text-sm font-medium text-gray-700">Project Type</label>
+                            <select id="project-type" required 
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default bg-white">
+                                <option value="" disabled selected>Select project type</option>
+                                <option value="web">Web Application (e.g., Flask/React)</option>
+                                <option value="mobile">Mobile Application (Native/Hybrid)</option>
+                                <option value="ai">AI/ML Model</option>
+                                <option value="iot">IoT/Hardware Project</option>
+                                <option value="other">Other Academic Project</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Project Title -->
+                    <div>
+                        <label for="project-title" class="block text-sm font-medium text-gray-700">Project Title</label>
+                        <input type="text" id="project-title" placeholder="Enter the title of your project" required 
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default">
+                    </div>
+
+                    <!-- Project Description & Requirements -->
+                    <div>
+                        <label for="requirements" class="block text-sm font-medium text-gray-700">Project Description & Requirements</label>
+                        <textarea id="requirements" rows="4" placeholder="Describe your project requirements, features, technologies, and any academic guidelines from your supervisor." required 
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Deadline -->
+                        <div>
+                            <label for="deadline" class="block text-sm font-medium text-gray-700">Deadline</label>
+                            <input type="date" id="deadline" required 
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default">
+                        </div>
+                        <!-- Budget Range -->
+                        <div>
+                            <label for="budget" class="block text-sm font-medium text-gray-700">Budget Range</label>
+                            <select id="budget" required 
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary-blue focus:border-primary-blue text-gray-900 transition-default bg-white">
+                                <option value="" disabled selected>Select budget range</option>
+                                <option value="low">Budget $300 - $600</option>
+                                <option value="medium">Budget $600 - $1200</option>
+                                <option value="high">Budget $1200+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-lg font-medium text-white bg-primary-blue hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-primary-blue transition-default transform hover:scale-[1.01] active:scale-[0.99]">
+                        Submit Order Request
+                    </button>
+                    <div id="form-status" class="hidden p-3 rounded-lg text-center font-semibold"></div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12 animate-on-scroll">
+                    What Students Say
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll" style="transition-delay: 100ms;">
+                        Real feedback from students who got their projects done with us.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 200ms;">
+                        <div class="flex items-center text-yellow-500 mb-4">
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">
+                            "The e-commerce app they delivered was phenomenal. My lab project was struggling, but they turned it into a fully functional, professional demo with detailed documentation."
+                        </p>
+                        <div class="flex items-center justify-start pt-4 border-t border-gray-100">
+                             <img src="https://placehold.co/40x40/cbd5e1/475569?text=AJ" alt="Avatar" class="w-10 h-10 rounded-full mr-3 object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900 text-left">Sarah Johnson</p>
+                                <p class="text-xs text-gray-500 text-left">Computer Science, MIT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 350ms;">
+                        <div class="flex items-center text-yellow-500 mb-4">
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">
+                            "Wonderful team with great communication. My ML project was complicated, but they broke it down perfectly. The code quality was excellent and easily adapted for my defense."
+                        </p>
+                        <div class="flex items-center justify-start pt-4 border-t border-gray-100">
+                             <img src="https://placehold.co/40x40/cbd5e1/475569?text=MD" alt="Avatar" class="w-10 h-10 rounded-full mr-3 object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900 text-left">Michael Davis</p>
+                                <p class="text-xs text-gray-500 text-left">Data Science, Stanford</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 500ms;">
+                        <div class="flex items-center text-yellow-500 mb-4">
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-yellow-500"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">
+                            "They completed my mobile app project when I was struggling with my code implementation. The fast turnaround saved my grade. Highly recommended for busy students!"
+                        </p>
+                        <div class="flex items-center justify-start pt-4 border-t border-gray-100">
+                            <img src="https://placehold.co/40x40/cbd5e1/475569?text=BE" alt="Avatar" class="w-10 h-10 rounded-full mr-3 object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900 text-left">Bobby Elias</p>
+                                <p class="text-xs text-gray-500 text-left">Software Engineering, Berkeley</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Column 1: ProjectHub Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-primary-blue">ProjectHub</h4>
+                    <p class="text-sm text-gray-400 mb-4">Professional project development for final year students, offering high-quality, custom solutions.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-blue transition-default"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary-blue transition-default"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary-blue transition-default"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#services" class="hover:text-primary-blue transition-default">Web Development</a></li>
+                        <li><a href="#services" class="hover:text-primary-blue transition-default">Mobile Apps</a></li>
+                        <li><a href="#services" class="hover:text-primary-blue transition-default">AI/ML Projects</a></li>
+                        <li><a href="#services" class="hover:text-primary-blue transition-default">Gaming Applications</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-primary-blue transition-default">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary-blue transition-default">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary-blue transition-default">Live Chat</a></li>
+                        <li><a href="#" class="hover:text-primary-blue transition-default">How It Works</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2"></i>info@projecthub.com</li>
+                        <li class="flex items-center"><i data-lucide="phone" class="w-4 h-4 mr-2"></i>+1 (000) 123-4567</li>
+                        <li class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>207 Project Alley, CA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 space-y-2">
+                <p>&copy; <span id="current-year"></span> ProjectHub. All rights reserved.</p>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-primary-blue transition-default">Privacy Policy</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#" class="hover:text-primary-blue transition-default">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Initialize Lucide icons
+        lucide.createIcons();
+
+        // 2. Set current year for footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 3. Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const iconElement = mobileMenuBtn.querySelector('i');
+            iconElement.innerHTML = mobileMenu.classList.contains('hidden')
+                ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+            lucide.createIcons();
+        });
+        
+        // 4. Form Submission Handler (simulated)
+        const orderForm = document.getElementById('project-order-form');
+        const formStatus = document.getElementById('form-status');
+
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show processing message
+            formStatus.textContent = 'Submitting request...';
+            formStatus.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
+            formStatus.classList.add('bg-blue-100', 'text-primary-blue', 'block');
+            
+            // Simulate API call delay (1.5 seconds)
+            setTimeout(() => {
+                orderForm.reset();
+                formStatus.textContent = 'Success! Your project request has been sent. We will contact you within 24 hours.';
+                formStatus.classList.remove('bg-blue-100', 'text-primary-blue');
+                formStatus.classList.add('bg-green-100', 'text-green-700');
+            }, 1500);
+        });
+        
+        // 5. Scroll Animation Logic using Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated-visible');
+                    // Stop observing once it's visible to save resources
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1, // Element is considered 'in view' when 10% is visible
+            rootMargin: '0px 0px -100px 0px' // Start checking a bit earlier than the viewport end
+        });
+
+        // Target all elements with the 'animate-on-scroll' class
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            element.classList.add('transition-default');
+            observer.observe(element);
+        });
+
+    </script>
+</body>
+</html>
