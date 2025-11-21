@@ -1,287 +1,320 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProjectHub - Project Samples Portfolio</title>
-    <!-- Load Tailwind CSS -->
+    <title>Our Work - Success Stories</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Define custom theme colors for Tailwind based on the design */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-blue': '#2563eb', /* Deep blue */
-                        'secondary-blue': '#f0f4ff', /* Light background */
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            }
-        }
-
-        /* Custom font import (Inter is the preferred default) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        /* Custom styles for aesthetic enhancements */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1f2937;
+            background-color: #f7f9fc; /* Light blue-gray background */
         }
-        
-        /* Utility class for transition effects */
-        .transition-default {
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .nav-link:hover {
+            color: #1e40af; /* Darker blue on hover */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
-
-        /* Initial state for scroll animation */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
         }
-
-        /* Active state for scroll animation */
-        .animated-visible {
-            opacity: 1;
-            transform: translateY(0);
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(10, 25, 45, 0.1);
+        }
+        .img-placeholder {
+            min-height: 250px; /* Ensure images have a visible space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e5e7eb;
+            color: #4b5563;
+            font-style: italic;
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="min-h-screen flex flex-col">
 
-    <!-- Navigation Bar (Simple Version) -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Navigation Bar (Reused from Contact Page for Consistency) -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo/Brand Name -->
-                <a href="/" class="text-xl font-bold text-primary-blue flex items-center">
-                    <i data-lucide="graduation-cap" class="w-6 h-6 mr-1 text-blue-500"></i>
-                    ProjectHub
-                </a>
-
-                <!-- Back to Home Button -->
-                <a href="/" class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium text-sm shadow-sm hover:bg-gray-200 transition-default flex items-center">
-                    <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i>
-                    Back to Home
-                </a>
+                <!-- Logo/Branding -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-blue-600">AcademiaPro</a>
+                </div>
+                <!-- Nav Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-gray-600 font-medium">Home</a>
+                    <a href="#" class="nav-link text-blue-600 font-bold border-b-2 border-blue-600 pb-1">Our Work</a>
+                    <a href="#" class="nav-link text-gray-600 font-medium">Pricing</a>
+                    <a href="#" class="nav-link text-gray-600 font-medium">Contact Us</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-500 hover:text-gray-700 p-2 rounded-md transition duration-150 ease-in-out" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Our Work</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Pricing</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Contact Us</a>
         </div>
     </header>
 
-    <main>
-        <!-- Samples Hero Section -->
-        <section class="py-12 md:py-20 bg-secondary-blue/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 animate-on-scroll">
-                    Our Project <span class="text-primary-blue">Portfolio</span>
+    <!-- Main Content - Portfolio Grid -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-extrabold text-gray-900 mb-3 tracking-tight">
+                    Project Success Showcase
                 </h1>
-                <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto animate-on-scroll" style="transition-delay: 100ms;">
-                    Explore a diverse range of high-scoring academic projects we've successfully delivered across various technical domains.
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A glimpse into the diverse projects we've helped students achieve—from securing approval to delivering professional final documents.
                 </p>
-                <div class="flex justify-center space-x-4 animate-on-scroll" style="transition-delay: 200ms;">
-                    <!-- Filter Buttons (Placeholder functionality) -->
-                    <button class="px-4 py-2 text-sm rounded-full bg-primary-blue text-white font-medium shadow-md hover:bg-blue-700 transition-default">All Categories</button>
-                    <button class="px-4 py-2 text-sm rounded-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-100 transition-default">Web Apps</button>
-                    <button class="px-4 py-2 text-sm rounded-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-100 transition-default">AI/ML</button>
-                    <button class="px-4 py-2 text-sm rounded-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-100 transition-default">Mobile</button>
-                </div>
             </div>
-        </section>
 
-        <!-- Project Grid -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Project Card 1: E-commerce Web Platform -->
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 300ms;">
-                        <img src="/static/images/web-ecommerce.jpg" 
-                             alt="E-commerce Project Preview" 
-                             class="w-full h-48 object-cover border-b border-gray-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x300/e0f2f1/0f766e?text=Web+E-commerce'">
-                        <div class="p-6">
-                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700 mb-3">Web App</span>
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Advanced E-commerce Platform</h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                A full-stack solution featuring secure payment integration, role-based access control, and a modern React front-end.
-                            </p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                <span class="font-medium">Tech Stack: Python (Django), PostgreSQL, React</span>
+            <!-- Portfolio Grid Container -->
+            <div class="space-y-12">
+
+                <!-- 1. Web Development Projects -->
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 border-blue-200">
+                        1. Web Development & Software
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                        <!-- Project Card 1 (Web Dev Example) -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl">
+                                <!-- REPLACE THIS with your Web Dev Project Screenshot/Image URL -->
+                                <img src="img/Screenshot 2025-11-21 141633.png" alt="Web Development Project" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/3b82f6/ffffff?text=Web+App+Screenshot';">
                             </div>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-primary-blue text-white hover:bg-blue-700 transition-default">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2: Image Recognition ML Model -->
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 450ms;">
-                        <img src="/static/images/ai-recognition.jpg" 
-                             alt="ML Project Preview" 
-                             class="w-full h-48 object-cover border-b border-gray-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x300/fffbeb/b45309?text=Machine+Learning'">
-                        <div class="p-6">
-                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-700 mb-3">AI / ML</span>
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Custom Object Recognition System</h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                Deep learning model (CNN) trained to identify custom objects in real-time, deployed via a simple web interface.
-                            </p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                <span class="font-medium">Tech Stack: Python, TensorFlow, OpenCV</span>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">E-Commerce Inventory System</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Full-stack solution for a university research project focusing on scalability and modern authentication (React, Node.js, MongoDB).
+                                </p>
+                                <a href="https://emma-nuel.onrender.com/" class="text-blue-600 hover:text-blue-800 font-medium text-sm mt-3 inline-block">View Case Study &rarr;</a>
                             </div>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-primary-blue text-white hover:bg-blue-700 transition-default">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
                         </div>
-                    </div>
-
-                    <!-- Project Card 3: Health Tracking Mobile App -->
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 600ms;">
-                        <img src="/static/images/mobile-tracker.jpg" 
-                             alt="Mobile App Project Preview" 
-                             class="w-full h-48 object-cover border-b border-gray-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x300/eef2ff/4338ca?text=Mobile+App'">
-                        <div class="p-6">
-                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-700 mb-3">Mobile App</span>
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Cross-Platform Fitness Tracker</h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                Mobile application built with Flutter, featuring state management, local database storage, and biometric integration.
-                            </p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                <span class="font-medium">Tech Stack: Flutter, Dart, Firebase</span>
+                        
+                        <!-- Project Card 2 (Another Web Dev Example) -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl">
+                                <!-- REPLACE THIS with your second Web Dev Project Screenshot/Image URL -->
+                                <img src="img/Screenshot 2025-11-21 142529.png" alt="Data Visualization Project" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/10b981/ffffff?text=Data+Visualization+Tool';">
                             </div>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-primary-blue text-white hover:bg-blue-700 transition-default">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                     <!-- Project Card 4: IoT Home Automation -->
-                     <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 750ms;">
-                        <img src="/static/images/iot-monitor.jpg" 
-                             alt="IoT Project Preview" 
-                             class="w-full h-48 object-cover border-b border-gray-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x300/fae8ff/9d174d?text=IoT+Project'">
-                        <div class="p-6">
-                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-pink-100 text-pink-700 mb-3">IoT / Embedded</span>
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Smart Home Energy Monitor</h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                Hardware-software integration using Raspberry Pi to monitor and optimize home energy consumption in real-time.
-                            </p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                <span class="font-medium">Tech Stack: Python, Raspberry Pi, MQTT</span>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Interactive Data Dashboard</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Developed a secure, responsive dashboard for visualizing real-time data using D3.js and Angular framework.
+                                </p>
+                                <a href="https://ariontrade.com/" class="text-blue-600 hover:text-blue-800 font-medium text-sm mt-3 inline-block">View Case Study &rarr;</a>
                             </div>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-primary-blue text-white hover:bg-blue-700 transition-default">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
                         </div>
-                    </div>
 
-                    <!-- Project Card 5: Financial Data Visualizer -->
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 900ms;">
-                        <img src="/static/images/data-visualizer.jpg" 
-                             alt="Financial Data Project Preview" 
-                             class="w-full h-48 object-cover border-b border-gray-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x300/ecfdf5/047857?text=Data+Visualization'">
-                        <div class="p-6">
-                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-teal-100 text-teal-700 mb-3">Data Science</span>
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Stock Market Predictive Model</h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                A robust platform for fetching, cleaning, and visualizing historical financial data with a predictive LSTM model.
-                            </p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                <span class="font-medium">Tech Stack: Python (Pandas/Scikit-learn), Plotly</span>
+                         <!-- Project Card 3 (Placeholder for more Web Dev) -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl bg-gray-100">
+                                <!-- <span class="text-sm">Web Dev Image Slot (Add More Here)</span> -->
+                                 <img src="img/Screenshot 2025-11-21 141524.png" alt="Data Visualization Project" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/10b981/ffffff?text=Data+Visualization+Tool';">
                             </div>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-primary-blue text-white hover:bg-blue-700 transition-default">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 6: Multiplayer Game -->
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 animate-on-scroll hover:shadow-2xl transition-default transform hover:-translate-y-1" style="transition-delay: 1050ms;">
-                        <img src="/static/images/game-multiplayer.jpg" 
-                             alt="Game Project Preview" 
-                             class="w-full h-48 object-cover border-b border-gray-100"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x300/f0f9ff/0e7490?text=Game+Development'">
-                        <div class="p-6">
-                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-cyan-100 text-cyan-700 mb-3">Game Dev</span>
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Real-Time Multiplayer Browser Game</h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                A 2D canvas-based game using WebSockets for real-time interaction and a Node.js backend for server-side logic.
-                            </p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                <span class="font-medium">Tech Stack: HTML5, JavaScript, Socket.IO</span>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">More Projects Coming Soon...</h3>
+                                <p class="text-gray-600 text-sm">
+                                    We handle various technologies including Python/Flask, Java, and embedded systems interfaces.
+                                </p>
+                                <a href="https://emma-nuel.onrender.com/" class="text-blue-600 hover:text-blue-800 font-medium text-sm mt-3 inline-block">View Case Study &rarr;</a>
                             </div>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-primary-blue text-white hover:bg-blue-700 transition-default">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                </section>
+
+                <!-- 2. Project Bidding & Proposal Success -->
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 border-blue-200">
+                        2. Successful Project Bidding & Proposals
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Bidding Project Card 1 (Use an image showing proposal success/a well-bound document) -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl">
+                                <!-- REPLACE THIS with an image of a successful proposal cover page or an "Approved" stamp -->
+                                <img src="https://placehold.co/800x500/ef4444/ffffff?text=Bidding+Success+Proposal" alt="Approved Project Proposal" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/ef4444/ffffff?text=Bidding+Success+Proposal';">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">High-Score Proposal (Civil Eng.)</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Wrote and formatted a detailed 50-page civil engineering proposal that secured project approval on the first submission.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Bidding Project Card 2 -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl bg-gray-100">
+                                <!-- REPLACE THIS with an image related to cost/time management or a clean timeline -->
+                                <img src="https://placehold.co/800x500/f59e0b/ffffff?text=Risk+Assessment+%26+Timeline" alt="Project Timeline Management" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/f59e0b/ffffff?text=Risk+Assessment+%26+Timeline';">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">IT Project Bidding & Scope Definition</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Assisted with realistic cost estimations and risk assessment sections, leading to a perfectly balanced project scope.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Bidding Project Card 3 -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl bg-gray-100">
+                                <span class="text-sm">Bidding/Proposal Image Slot (Add Here)</span>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Approved Research Abstracts</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Crafted concise and persuasive abstracts and initial literature reviews for various academic fields.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 3. Document Editing, Formatting, and Printing -->
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 border-blue-200">
+                        3. Final Document Editing & Printing
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Editing Project Card 1 (Use an image of a perfectly bound book/thesis) -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl">
+                                <!-- REPLACE THIS with an image of a professionally bound thesis or report -->
+                                <img src="https://placehold.co/800x500/14b8a6/ffffff?text=Thesis+Final+Bound+Copy" alt="Professionally Bound Thesis" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/14b8a6/ffffff?text=Thesis+Final+Bound+Copy';">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Thesis Formatting (APA/MLA/IEEE)</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Guaranteed zero-error formatting for a 300-page Master's thesis, ensuring perfect alignment, TOC, and reference lists.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Editing Project Card 2 -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl bg-gray-100">
+                                <!-- REPLACE THIS with an image showing track changes/clean-up process -->
+                                <img src="https://placehold.co/800x500/6366f1/ffffff?text=Document+Proofreading" alt="Proofreading Marks" class="w-full h-auto object-cover rounded-t-xl" onerror="this.src='https://placehold.co/800x500/6366f1/ffffff?text=Document+Proofreading';">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">PDF & MS Word Editing Cleanup</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Comprehensive proofreading and line-editing for grammar and clarity on a lengthy technical report submitted as a PDF.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Editing Project Card 3 -->
+                        <div class="project-card bg-white rounded-xl">
+                            <div class="img-placeholder rounded-t-xl bg-gray-100">
+                                <span class="text-sm">Editing/Printing Image Slot (Add Here)</span>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Last-Minute Correction & Print</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Fast-track service to catch final errors and prepare documents for high-quality, professional printing and binding.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
             </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-16 bg-primary-blue">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll" style="transition-delay: 150ms;">
-                <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
-                <p class="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
-                    These samples are just the beginning. Tell us your unique requirements, and we'll deliver a flawless, high-quality project tailored for you.
-                </p>
-                <!-- Note: The anchor tag links to the index page's contact form -->
-                <a href="/#contact-form" class="px-8 py-3 bg-white text-primary-blue font-semibold rounded-lg shadow-xl hover:bg-gray-200 transition-default transform hover:scale-105 active:scale-95 inline-flex items-center">
-                    Get a Free Quote Now
-                    <i data-lucide="zap" class="w-5 h-5 ml-2 fill-primary-blue/30"></i>
-                </a>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Footer (Minimal) -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
-            <p>&copy; <span id="current-year"></span> ProjectHub. All Rights Reserved. | <a href="/" class="hover:text-primary-blue transition-default">Back to Home</a></p>
+    <!-- Footer (Reused from Contact Page for Consistency) -->
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-gray-700 pb-6 mb-6">
+                <!-- Company Info -->
+                <div>
+                    <h4 class="text-xl font-bold mb-3 text-blue-400">AcademiaPro</h4>
+                    <p class="text-sm text-gray-400">Dedicated to helping students ace their final year projects and documentation.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Key Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Project Bidding</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Document Editing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Web Dev Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Consultation</a></li>
+                    </ul>
+                </div>
+                <!-- Contact (Repeated for visibility) -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Support</h4>
+                    <p class="text-sm text-gray-400 mb-1">Email: support@academiapro.com</p>
+                    <p class="text-sm text-gray-400 mb-1">Phone: +1 (555) 123-4567</p>
+                    <div class="flex space-x-4 mt-3">
+                        <!-- Social Icons Placeholder -->
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.533-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="Twitter">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.791-1.574 2.15-2.71-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.138-10.155-5.044-.424.722-.66 1.567-.66 2.472 0 1.61.87 3.045 2.173 3.879-.807-.025-1.569-.247-2.23-.614v.08c0 3.208 2.298 5.86 5.344 6.49-.672.185-1.393.284-2.14.284-.509 0-1.002-.047-1.482-.132.864 2.253 3.36 3.89 6.307 3.934-2.298 1.8-5.187 2.574-8.15 2.574-.532 0-1.052-.03-1.56-.09 2.983 1.94 6.524 3.084 10.383 3.084 12.426 0 19.141-10.122 19.141-18.169 0-.46-.01-.918-.035-1.366.832-.6 1.55-1.284 2.115-2.083z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center">
+                <p class="text-sm text-gray-500">&copy; <span id="current-year-footer"></span> AcademiaPro. All rights reserved. </p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // 1. Initialize Lucide icons
-        lucide.createIcons();
+        // Set the current year in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
 
-        // 2. Set current year for footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Toggle mobile menu visibility
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
         
-        // 3. Scroll Animation Logic using Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated-visible');
-                    // Stop observing once it's visible to save resources
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1, // Element is considered 'in view' when 10% is visible
-            rootMargin: '0px 0px -100px 0px' // Start checking a bit earlier than the viewport end
-        });
-
-        // Target all elements with the 'animate-on-scroll' class
-        document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            element.classList.add('transition-default');
-            observer.observe(element);
-        });
+        // Example for image loading, in a real app you'd replace the src attributes directly.
+        // The placeholder images use a fallback (onerror) just in case the initial placeholder fails.
     </script>
-</body>
 
+</body>
 </html>
+
+
+

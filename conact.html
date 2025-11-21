@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Academic Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for aesthetic enhancements */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Light blue-gray background */
+        }
+        .nav-link:hover {
+            color: #1e40af; /* Darker blue on hover */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .contact-card {
+            box-shadow: 0 10px 30px rgba(10, 25, 45, 0.1);
+        }
+        .form-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+        .btn-primary {
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #1e40af;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Branding -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-blue-600">AcademiaPro</a>
+                </div>
+                <!-- Nav Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-gray-600 font-medium">Home</a>
+                    <a href="#" class="nav-link text-gray-600 font-medium">Services</a>
+                    <a href="#" class="nav-link text-gray-600 font-medium">Pricing</a>
+                    <a href="#" class="nav-link text-blue-600 font-bold border-b-2 border-blue-600 pb-1">Contact Us</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-500 hover:text-gray-700 p-2 rounded-md transition duration-150 ease-in-out" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Services</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Pricing</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-extrabold text-gray-900 mb-3 tracking-tight">
+                    Let's Connect
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're ready to help you nail that final project. Send us a message, and we'll get back to you within 24 hours.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Contact Information Card -->
+                <div class="lg:col-span-1 bg-blue-700 p-8 rounded-xl text-white contact-card h-full">
+                    <h2 class="text-3xl font-bold mb-6">Contact Info</h2>
+
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
+                            <div>
+                                <p class="font-semibold">Email Us</p>
+                                <a href="mailto:support@academiapro.com" class="text-blue-200 hover:text-white transition">support@academiapro.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.128a11.042 11.042 0 005.516 5.516l1.128-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <div>
+                                <p class="font-semibold">Call/WhatsApp</p>
+                                <p class="text-blue-200">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+
+                        <!-- Location/Office -->
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 mt-1 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <div>
+                                <p class="font-semibold">Office (By Appointment)</p>
+                                <p class="text-blue-200">123 University Ave, Tech Hub, Global City, 10001</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-blue-600">
+                        <p class="text-sm text-blue-300 italic">We strictly maintain confidentiality for all student and project data.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-2 bg-white p-8 md:p-10 rounded-xl contact-card">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-150">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-150">
+                        </div>
+
+                        <!-- Service Type -->
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">I Need Help With...</label>
+                            <select id="service" name="service" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-150 bg-white">
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="project-bidding">Project Bidding & Proposal</option>
+                                <option value="document-editing">PDF/MS Word Editing</option>
+                                <option value="web-dev">Web Development</option>
+                                <option value="general-inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message / Project Details</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-150"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="submit-btn" class="btn-primary w-full py-3 px-4 border border-transparent rounded-lg shadow-lg text-lg font-semibold text-white bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 mt-4">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <!-- Confirmation/Error Message Area -->
+                    <div id="status-message" class="mt-4 text-center font-semibold p-3 rounded-lg hidden" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-gray-700 pb-6 mb-6">
+                <!-- Company Info -->
+                <div>
+                    <h4 class="text-xl font-bold mb-3 text-blue-400">AcademiaPro</h4>
+                    <p class="text-sm text-gray-400">Dedicated to helping students ace their final year projects and documentation.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Our Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Key Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Project Bidding</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Document Editing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Web Dev Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Consultation</a></li>
+                    </ul>
+                </div>
+                <!-- Contact (Repeated for visibility) -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Support</h4>
+                    <p class="text-sm text-gray-400 mb-1">Email: support@academiapro.com</p>
+                    <p class="text-sm text-gray-400 mb-1">Phone: +1 (555) 123-4567</p>
+                    <div class="flex space-x-4 mt-3">
+                        <!-- Social Icons Placeholder -->
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.533-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="Twitter">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.791-1.574 2.15-2.71-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.138-10.155-5.044-.424.722-.66 1.567-.66 2.472 0 1.61.87 3.045 2.173 3.879-.807-.025-1.569-.247-2.23-.614v.08c0 3.208 2.298 5.86 5.344 6.49-.672.185-1.393.284-2.14.284-.509 0-1.002-.047-1.482-.132.864 2.253 3.36 3.89 6.307 3.934-2.298 1.8-5.187 2.574-8.15 2.574-.532 0-1.052-.03-1.56-.09 2.983 1.94 6.524 3.084 10.383 3.084 12.426 0 19.141-10.122 19.141-18.169 0-.46-.01-.918-.035-1.366.832-.6 1.55-1.284 2.115-2.083z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center">
+                <p class="text-sm text-gray-500">&copy; <span id="current-year"></span> AcademiaPro. All rights reserved. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Toggle mobile menu visibility
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission handler (simulated)
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Stop the default form submission
+            const form = document.getElementById('contact-form');
+            const statusMessage = document.getElementById('status-message');
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Simple validation check
+            if (!form.checkValidity()) {
+                statusMessage.textContent = 'Please fill out all required fields correctly.';
+                statusMessage.className = 'mt-4 text-center font-semibold p-3 rounded-lg text-red-700 bg-red-100 block';
+                return;
+            }
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70');
+
+            // Simulate API call delay
+            setTimeout(() => {
+                // Get form data for display
+                const name = document.getElementById('name').value;
+                const service = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+
+                // Success message
+                statusMessage.innerHTML = `Thank you, <span class="text-blue-700">${name}</span>! Your inquiry about **${service}** has been received. We will contact you soon!`;
+                statusMessage.className = 'mt-4 text-center font-semibold p-3 rounded-lg text-green-700 bg-green-100 block';
+
+                // Reset form state
+                form.reset();
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70');
+
+            }, 2000); // 2 second delay
+        }
+    </script>
+
+</body>
+</html>
